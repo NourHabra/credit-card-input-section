@@ -1,38 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.cards {
+  height: 100vh;
+  width: 50vw;
+  background-image: url(../public/images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+}
+
+.card {
+  background-color: black;
+  height: 245px;
+  width: 447px;
+  border-radius: 10px;
+  padding: 30px;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+  user-select: none;
+}
+
+.front {
+  background-image: url(../public/images/bg-card-front.png);
+  margin: 70px 0px 0px 5vw;
+}
+
+.back {
+  background-image: url(../public/images/bg-card-back.png);
+  margin: 25px 0px 0px 10vw;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
+  padding-right: 60px;
+  font-family: 'Roboto Mono', monospace;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#card-number {
+  color: white;
+  font-size: 30px;
+  word-spacing: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.number {
+  font-family: 'Roboto Mono', monospace;
+}
+
+#details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 20px;
+}
+
+#form-section {
+  height: 100vh;
+  width: 50vw;
+  padding: 5vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 310px;
+  font-size: 18px;
+}
+
+#success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  justify-content: space-between;
+  width: 400px;
+  height: 310px;
+  margin-left: 50px;
+}
+
+#success button {
+  width: 100%;
+  border-radius: 7px;
+  height: 50px;
+}
+
+#success h2 {
+  font-size: 40px;
+  margin: 0;
+}
+
+#success h3 {
+  font-size: 20px;
+  margin: 0;
+  margin-top: -40px;
+  color: darkgray;
+}
+
+input {
+  border: 2px solid black;
+  height: 30px;
+  border-radius: 7px;
+  padding-left: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.submit {
+  /* margin-top: 20px; */
+  height: 50px;
+  font-family: 'Space Grotesk', sans-serif;
+  color: white;
+  background-color: black;
+}
+
+.subfields {
+  display: flex;
+}
+
+.date-fields input {
+  width: 35%;
+  margin-right: 10px;
+}
+
+.date-fields {
+  display: flex;
+}
+
+.warning {
+  font-size: small;
+  margin: 0;
+  color: red;
+  padding-left: 5px;
+  height: 25px;
+}
+
+@media screen and (max-width: 1100px) {
+  body {
+    width: 100vw;
+    height: fit-content;
+    overflow-x: hidden;
+    background-position-y: -690px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App {
+    flex-direction: column;
+  }
+
+  .cards {
+    width: 100vw;
+    background-size: 100% 70%;
+    /* background-position-y: -110vh; */
+    background-position-x: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .card {
+    transform: scale(0.6);
+  }
+
+  .front {
+    margin-top: -150px;
+    margin-left: -70px;
+    z-index: 3;
+  }
+
+  .back {
+    margin-top: -30px;
+    margin-left: -10px;
+    z-index: 2;
+  }
+
+  #form-section {
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-top: -45px;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+    height: 300px;
+    font-size: 18px;
+    margin-left: 0;
+  }
+
+  #success {
+    padding: 20px;
+    width: 100%;
+    height: 300px;
+    max-width: 400px;
+    min-width: 300px;
+    height: 300px;
+    margin-left: 0;
+  }
+
+  #success h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  #success h3 {
+    font-size: 15px;
+    margin: 0;
+    margin-top: -40px;
+    color: darkgray;
   }
 }
